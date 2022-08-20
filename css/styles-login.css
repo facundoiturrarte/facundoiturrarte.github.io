@@ -1,0 +1,34 @@
+body {
+  background-color: #E7F6F2;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+main {
+  flex: 1;
+}
+
+.form-login {
+  border: 2px solid #e1e1e1;
+  border-radius: 5px;
+  padding: 17px;
+  width: 300px; 
+  gap: 12px;
+}
+
+.google-text {
+  font-size: 10px;
+}
+
+.info {
+  color: red;
+}
+
+@media (max-width: 400px) {
+  .form-login {
+    width: 90%;
+  }
+}
