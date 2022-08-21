@@ -4,10 +4,8 @@ const products_url = "https://japceibal.github.io/emercado-api/cats_products/101
 fetch(products_url)
 .then(res=>res.json())
 .then(datos=>{
-    console.log(datos);
     let divListaProductos = document.getElementById("products")
     for (let productos of datos.products){
-        console.log(productos)
         divListaProductos.innerHTML += ` <div onclick="setCatID(${productos.id})" class="list-group-item list-group-item-action cursor-active">
         <div class="row">
             <div class="col-3">
@@ -22,7 +20,5 @@ fetch(products_url)
             </div>
         </div>
     </div>`
-        console.log(divListaProductos)
     }
-    
 });
