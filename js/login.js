@@ -7,7 +7,7 @@ function login() {
     if (email.value.length == 0 || password.value.length >= 8) {
         window.location.href = "index.html";
     } else {
-        info.innerHTML = "La contrasena debe contener mas de 8 caracteres"
+        info.innerHTML = "La contraseña debe contener más de 8 caracteres"
     }
 }
 
