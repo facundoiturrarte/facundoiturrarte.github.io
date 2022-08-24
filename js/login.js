@@ -5,12 +5,20 @@ let info = document.getElementById("info");
 
 function login() {
     if (email.value.length == 0 || password.value.length >= 8) {
-        console.log('hiiiiw')
+        localStorage.setItem("user",email.value);
         window.location.href = "index.html";
     } else {
         info.innerHTML = "La contrasena debe contener mas de 8 caracteres"
     }
 }
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    let usuario = localStorage.getItem("user");
+    document.getElementById("user").innerHTML= usuario;
+})  
+       
+   
+
 
 function loginGoogle() {
     window.location.href = "index.html";
