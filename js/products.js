@@ -13,6 +13,7 @@ let original = [];
 let parrafo = document.getElementById("parrafoAutos");
 const products_url = "https://japceibal.github.io/emercado-api/cats_products/" + localStorage.getItem("catID") + ".json";
 fetch(products_url)
+<<<<<<< HEAD
     .then(res => res.json())
     .then(datos => {
         gral = datos.products;
@@ -25,6 +26,13 @@ function mostrarProductos() {
     let contenido = "";
     for (let productos of gral) {
         contenido += `<div onclick="setCatID(${productos.id})" class="list-group-item list-group-item-action cursor-active">
+=======
+.then(res=>res.json())
+.then(datos=>{
+    let divListaProductos = document.getElementById("products")
+    for (let productos of datos.products){
+        divListaProductos.innerHTML += ` <div onclick="setCatID(${productos.id})" class="list-group-item list-group-item-action cursor-active">
+>>>>>>> df563c4c725f17d1f1afe6cf7f48de5c4819fc29
         <div class="row">
             <div class="col-3">
                 <img src="${productos.image}" alt="${productos.description}" class="img-thumbnail">
@@ -39,6 +47,7 @@ function mostrarProductos() {
         </div>
     </div>`
     }
+<<<<<<< HEAD
     divListaProductos.innerHTML = contenido
 }
 
@@ -84,6 +93,8 @@ btnFiltrar.addEventListener('click', function () {
     };
     gral = original.filter(gral => gral.cost >= min && gral.cost <= max);
     mostrarProductos();
+=======
+>>>>>>> df563c4c725f17d1f1afe6cf7f48de5c4819fc29
 });
 btnLimpiar.addEventListener('click', function (event) {
     inputMax.value = "";
