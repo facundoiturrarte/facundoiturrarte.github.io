@@ -188,3 +188,32 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+.icono{
+  width: 50%;
+  max-width: 330px;
+  padding: 0px;
+  margin: 0;
+}
+element.style {
+  height: 24px;
+}
+
+form.example input[type=search] {
+  padding: 5px;
+  font-size: 17px;
+  border: 1px solid #fefefe;
+  float: left;
+  width: 300px;
+  background: #fefefe;
+}
+
+
+form.example button {
+  float: left;
+  width: 40px;
+  padding: 5px;
+  background: #fefefe;
+  font-size: 17px;
+  border: 1px solid #fefefe ;
+  cursor: pointer;
+}

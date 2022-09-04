@@ -8,7 +8,7 @@ function login() {
         localStorage.setItem("user",email.value);
         window.location.href = "index.html";
     } else {
-        info.innerHTML = "La contrasena debe contener mas de 8 caracteres"
+        info.innerHTML = "La contraseña debe contener más de 8 caracteres"
     }
 }
 
