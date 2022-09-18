@@ -18,8 +18,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
 })  
        
    
-
-
 function loginGoogle() {
     window.location.href = "index.html";
 }

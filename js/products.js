@@ -92,7 +92,12 @@ btnLimpiar.addEventListener('click', function (event) {
 });
 
 search.addEventListener('keyup', e => {
-    gral = original.filter(gral => gral.description.toLowerCase() && gral.name.toLowerCase().includes(search.value.toLowerCase()))
+    gral = original.filter(gral => gral.name.toLowerCase().includes(search.value.toLowerCase()) || gral.description.toLowerCase().includes(search.value.toLowerCase()))
     mostrarProductos(gral);
 })
 
+
+function setCatID(id) {
+    localStorage.setItem("catID", id);
+    window.location.href = "product-info.html"
+}
