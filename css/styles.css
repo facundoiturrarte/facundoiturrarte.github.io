@@ -220,7 +220,7 @@ form.example button {
 #catID{
   border: 3px solid rgba(0, 0, 0, .2);
   padding: 8px;
-  margin: 15px 15px 15px;
+
 }
 #cont{
   float: right;
@@ -232,22 +232,83 @@ form.example button {
   width: 100%; 
   border: 1px solid rgba(0, 0, 0, .2);
   padding: 8px;
-  margin: 10px 10px 15px;
+  margin: 5px 5px 5px;
   cursor: pointer;
 }
 .product-small-img{
 width: 8%;
 display: flex;
 }
-.img-container img{
-  width: 120%;
-}
-.img-container{
-  padding: 10px;
-  width: 45%;
-}
 .referencias{
   font: weight;
 }
+#product-rel{
+width: 100%;
+height: 50vh;
+}
+.name-img{
+  text-align: center;
+border: 2px solid rgba(0, 0, 0, .2);
+padding: 8px;
+margin: 5px 5px 5px;
+width: 15%;
+float: left;
+}
+.img-pRel{
+width: 50%;
+}
+.name{
+  font-size: 15px;
+}
+#dropdownMenuButton1{
+  background-color: #212529!important;
+}
+.slider{
+  margin: 50px auto;
+}
+.imagen-box{
+  width: 600px;
+  height: 400px;
+}
+.slider-img{
+  width: 100%;
+}
+.btn1{
+  border: none;
+  outline: none;
+  background: #888;
+  padding: 10px 30px;
+  font-size: 20px;
+  color: #ddd;
+  cursor: pointer;
+  margin: 10px auto;
+}
+.btn:hover{
+  background: #111;
+}
+.foto-grande{
+  display: flex;
+  padding-right: 20px;
+}
+.foto-grande > div { 
+  flex: 1; 
+}
 
-
+#imgBox {
+  width: 100%;
+}
+main{
+  padding: 40px;
+  }
+#agregar{
+max-width: 400px;
+}
+#item{
+max-width: 400px;
+}
+.boton{
+  border: none;
+  background-color: #fff;
+  font-size: 30px;
+  color: #0087F7;
+}

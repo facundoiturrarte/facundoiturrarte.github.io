@@ -3,15 +3,20 @@ let comentarios = document.getElementById("info-comentarios");
 var boton = document.getElementById('agregar');
 var texto = document.getElementById('item');
 let coment = [];
+let productsRel = [];
 let datos;
 let puntuacion;
 let now = new Date();
 let divEstrellas = document.getElementById('estrellas');
-const products_Info_url = `https://japceibal.github.io/emercado-api/products/${localStorage.getItem("catID")}.json`;
+let imageOnDisplay = 0;
+let fotos;
+const products_Info_url = `https://japceibal.github.io/emercado-api/products/${localStorage.getItem("productID")}.json`;
 fetch(products_Info_url)
     .then(res => res.json())
     .then(datos => {
-        console.log(datos)
+        productsRel=datos.relatedProducts;
+        relatedProducts();
+        fotos = datos.images;
         productInfo.innerHTML =  `<div id="cont"> <h1 class="Category"> ${datos.name}</h1>
          <p class="precio"><b> Precio</b> </br> ${datos.currency} ${datos.cost}</p>
          <p class="descripcion"><b>Descripcion</b> </br>${datos.description}</p>
@@ -20,22 +25,37 @@ fetch(products_Info_url)
          </div>
         
             <div class="img"><b>Imagenes ilustrativas</b></br>
+            <div class="foto-grande"> <button class="boton" onclick="handleChangeDisplay(1)"> &lt;</button>
             <div class="img-container"> <img id="imgBox" src="${datos.images[0]}">
             </div>
+            <button class="boton" onclick="handleChangeDisplay(-1)">&gt;</button>  
+            </div>
             <div class="product-small-img">
-                <img src="${datos.images[0]}"  onclick="myFunction(this)">
-                <img src="${datos.images[1]}"  onclick="myFunction(this)">
-                <img src="${datos.images[2]}"  onclick="myFunction(this)">
-                <img src="${datos.images[3]}"  onclick="myFunction(this)">
+                <img src="${datos.images[0]}"  index="0" onclick="myFunction(this)">
+                <img src="${datos.images[1]}"  index="1" onclick="myFunction(this)">
+                <img src="${datos.images[2]}"  index="2" onclick="myFunction(this)">
+                <img src="${datos.images[3]}"  index="3" onclick="myFunction(this)">
                 </div>
             </div>`
     })
    function myFunction(smallImg){
     var fullImg = document.getElementById("imgBox");
     fullImg.src = smallImg.src;
+    imageOnDisplay = smallImg.getAttribute("index")
    }
+   function handleChangeDisplay(numeric){
+    imageOnDisplay = parseInt(imageOnDisplay) + numeric
+    if(imageOnDisplay === -1) imageOnDisplay = fotos.length -1;
+    if(imageOnDisplay === fotos.length) imageOnDisplay = 0;
+    console.log(imageOnDisplay)
+    var fullImg = document.getElementById("imgBox");
+    fullImg.src = fotos[imageOnDisplay]
+}
+   
 
-const PRODUCT_COMMENTS_URL = `https://japceibal.github.io/emercado-api/products_comments/${localStorage.getItem("catID")}.json`;
+
+
+const PRODUCT_COMMENTS_URL = `https://japceibal.github.io/emercado-api/products_comments/${localStorage.getItem("productID")}.json`;
 fetch(PRODUCT_COMMENTS_URL)
     .then(res => res.json())
     .then(datos => {
@@ -92,7 +112,6 @@ let estrellas = divEstrellas.querySelectorAll("span")
 for (let i =0 ; i < estrellas.length ; i++){
     let estrella = estrellas[i]
     estrella.addEventListener("click", (e)=>{
-        console.log(puntuacion);
         puntuacion=i+1;
         for(let j =0 ; j < estrellas.length ; j++){
             let estrella2 = estrellas[j]
@@ -105,6 +124,20 @@ for (let i =0 ; i < estrellas.length ; i++){
     })
 }
 
+function relatedProducts(){
+    let productos="";
+    for (data of productsRel) {
+        console.log(data);
+       productos += `<div class="name-img" onclick="pRelId(${data.id})"> <img class="img-pRel" src="${data.image}">
+        <h4 class="name"> ${data.name}</h4></div>`
+}
+document.getElementById("product-rel").innerHTML+=productos;
+}
+
+function pRelId(id) {
+    localStorage.setItem("productID", id);
+    window.location.href = "product-info.html"
+}
 
 
 

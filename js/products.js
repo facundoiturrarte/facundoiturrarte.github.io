@@ -98,6 +98,6 @@ search.addEventListener('keyup', e => {
 
 
 function setCatID(id) {
-    localStorage.setItem("catID", id);
+    localStorage.setItem("productID", id);
     window.location.href = "product-info.html"
 }
