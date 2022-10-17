@@ -10,18 +10,22 @@ let now = new Date();
 let divEstrellas = document.getElementById('estrellas');
 let imageOnDisplay = 0;
 let fotos;
+let carritoProductos = [];
+let productosCarrito = [];
 const products_Info_url = `https://japceibal.github.io/emercado-api/products/${localStorage.getItem("productID")}.json`;
 fetch(products_Info_url)
     .then(res => res.json())
     .then(datos => {
-        productsRel=datos.relatedProducts;
+        productsRel = datos.relatedProducts;
         relatedProducts();
+        productosCarrito = datos;
         fotos = datos.images;
-        productInfo.innerHTML =  `<div id="cont"> <h1 class="Category"> ${datos.name}</h1>
+        productInfo.innerHTML = `<div id="cont"> <h1 class="Category"> ${datos.name}</h1>
          <p class="precio"><b> Precio</b> </br> ${datos.currency} ${datos.cost}</p>
          <p class="descripcion"><b>Descripcion</b> </br>${datos.description}</p>
          <p class="Category"><b>Categoria</b></br> ${datos.category}</p>
          <p class="cant-vendidos"><b>Cantidad de Vendidos</b></br> ${datos.soldCount}</p>
+         <button onclick="agregarAlCarrito(${datos.id})"id="agregar-producto" class="boton-agregar"> Agregar <i class="fas fa-shopping-cart"></i></botton>
          </div>
         
             <div class="img"><b>Imagenes ilustrativas</b></br>
@@ -38,20 +42,20 @@ fetch(products_Info_url)
                 </div>
             </div>`
     })
-   function myFunction(smallImg){
+
+function myFunction(smallImg) {
     var fullImg = document.getElementById("imgBox");
     fullImg.src = smallImg.src;
     imageOnDisplay = smallImg.getAttribute("index")
-   }
-   function handleChangeDisplay(numeric){
+}
+function handleChangeDisplay(numeric) {
     imageOnDisplay = parseInt(imageOnDisplay) + numeric
-    if(imageOnDisplay === -1) imageOnDisplay = fotos.length -1;
-    if(imageOnDisplay === fotos.length) imageOnDisplay = 0;
-    console.log(imageOnDisplay)
+    if (imageOnDisplay === -1) imageOnDisplay = fotos.length - 1;
+    if (imageOnDisplay === fotos.length) imageOnDisplay = 0;
     var fullImg = document.getElementById("imgBox");
     fullImg.src = fotos[imageOnDisplay]
 }
-   
+
 
 
 
@@ -59,7 +63,6 @@ const PRODUCT_COMMENTS_URL = `https://japceibal.github.io/emercado-api/products_
 fetch(PRODUCT_COMMENTS_URL)
     .then(res => res.json())
     .then(datos => {
-        console.log(datos)
         coment = datos;
         comentUsuario();
     });
@@ -108,30 +111,29 @@ ${star}</br>`
     comentarios.innerHTML = content;
 }
 let estrellas = divEstrellas.querySelectorAll("span")
- console.log(estrellas);
-for (let i =0 ; i < estrellas.length ; i++){
+for (let i = 0; i < estrellas.length; i++) {
     let estrella = estrellas[i]
-    estrella.addEventListener("click", (e)=>{
-        puntuacion=i+1;
-        for(let j =0 ; j < estrellas.length ; j++){
+    estrella.addEventListener("click", (e) => {
+        puntuacion = i + 1;
+        for (let j = 0; j < estrellas.length; j++) {
             let estrella2 = estrellas[j]
-            if ( j <= i ) {
+            if (j <= i) {
                 estrella2.classList.add("checked")
-                }else{ estrella2.classList.remove("checked")
+            } else {
+                estrella2.classList.remove("checked")
 
-                }
+            }
         }
     })
 }
 
-function relatedProducts(){
-    let productos="";
+function relatedProducts() {
+    let productos = "";
     for (data of productsRel) {
-        console.log(data);
-       productos += `<div class="name-img" onclick="pRelId(${data.id})"> <img class="img-pRel" src="${data.image}">
+        productos += `<div class="name-img" onclick="pRelId(${data.id})"> <img class="img-pRel" src="${data.image}">
         <h4 class="name"> ${data.name}</h4></div>`
-}
-document.getElementById("product-rel").innerHTML+=productos;
+    }
+    document.getElementById("product-rel").innerHTML += productos;
 }
 
 function pRelId(id) {
@@ -141,4 +143,19 @@ function pRelId(id) {
 
 
 
-
+function agregarAlCarrito(id) {
+    localStorage.setItem("productID", id);
+    let articulos = {
+        name: productosCarrito.name,
+        currency: productosCarrito.currency,
+        id: productosCarrito.id, 
+        image: productosCarrito.images[0],
+        unitCost: productosCarrito.cost
+    }
+    let productoEncontrado = carrito.find(p=>p.id==id)
+    if (productoEncontrado==undefined){
+     carrito.push(articulos);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+window.location.href = "cart.html"
+}

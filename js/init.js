@@ -43,3 +43,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
   let usuario = localStorage.getItem("user");
   document.getElementById("user").innerHTML= usuario;
 })  
+
+const cart_Info = "https://japceibal.github.io/emercado-api/user_cart/25801.json";
+let carrito = JSON.parse(localStorage.getItem("carrito")) || []; 
+
+fetch(cart_Info)
+    .then(res => res.json())
+    .then(datos => {
+        if(carrito.length === 0){
+          carrito.push(datos.articles[0]); 
+        }  
+ })

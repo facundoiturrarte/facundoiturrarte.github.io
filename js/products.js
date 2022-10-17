@@ -17,7 +17,6 @@ fetch(products_url)
     .then(datos => {
         gral = datos.products;
         original = datos.products;
-        console.log(original);
         parrafo.innerHTML = datos.catName;
         mostrarProductos();
     })
