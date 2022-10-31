@@ -47,10 +47,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
 const cart_Info = "https://japceibal.github.io/emercado-api/user_cart/25801.json";
 let carrito = JSON.parse(localStorage.getItem("carrito")) || []; 
 
-fetch(cart_Info)
-    .then(res => res.json())
-    .then(datos => {
-        if(carrito.length === 0){
-          carrito.push(datos.articles[0]); 
-        }  
- })
+ fetch(cart_Info)
+ .then(res => res.json())
+ .then(datos => {
+     articulos()
+     recalcularSubtotal()
+     // calcular el valor actual del costo de envio
+     calcularCostoDeEnvioInicial()
+}) 

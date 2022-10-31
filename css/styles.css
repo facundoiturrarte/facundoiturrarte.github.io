@@ -59,7 +59,7 @@ nav a {
 .jumbotron .container {
   max-width: 40rem;
   background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 10px;  
+  border-radius: 10px;
   text-shadow: 1px 1px 2px grey;
 }
 
@@ -188,12 +188,14 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
-.icono{
+
+.icono {
   width: 50%;
   max-width: 330px;
   padding: 0px;
   margin: 0;
 }
+
 element.style {
   height: 24px;
 }
@@ -214,66 +216,79 @@ form.example button {
   padding: 5px;
   background: #fefefe;
   font-size: 17px;
-  border: 1px solid #fefefe ;
+  border: 1px solid #fefefe;
   cursor: pointer;
 }
-#catID{
+
+#catID {
   border: 3px solid rgba(0, 0, 0, .2);
   padding: 8px;
 
 }
-#cont{
+
+#cont {
   float: right;
   width: 40%;
 
 }
 
-.product-small-img img{
-  width: 100%; 
+.product-small-img img {
+  width: 100%;
   border: 1px solid rgba(0, 0, 0, .2);
   padding: 8px;
   margin: 5px 5px 5px;
   cursor: pointer;
 }
-.product-small-img{
-width: 8%;
-display: flex;
+
+.product-small-img {
+  width: 8%;
+  display: flex;
 }
-.referencias{
+
+.referencias {
   font: weight;
 }
-#product-rel{
-width: 100%;
-height: 50vh;
+
+#product-rel {
+  width: 100%;
+  height: 50vh;
 }
-.name-img{
+
+.name-img {
   text-align: center;
-border: 2px solid rgba(0, 0, 0, .2);
-padding: 8px;
-margin: 5px 5px 5px;
-width: 15%;
-float: left;
+  border: 2px solid rgba(0, 0, 0, .2);
+  padding: 8px;
+  margin: 5px 5px 5px;
+  width: 15%;
+  float: left;
 }
-.img-pRel{
-width: 50%;
+
+.img-pRel {
+  width: 50%;
 }
-.name{
+
+.name {
   font-size: 15px;
 }
-#dropdownMenuButton1{
-  background-color: #212529!important;
+
+#dropdownMenuButton1 {
+  background-color: #212529 !important;
 }
-.slider{
+
+.slider {
   margin: 50px auto;
 }
-.imagen-box{
+
+.imagen-box {
   width: 600px;
   height: 400px;
 }
-.slider-img{
+
+.slider-img {
   width: 100%;
 }
-.btn1{
+
+.btn1 {
   border: none;
   outline: none;
   background: #888;
@@ -283,36 +298,53 @@ width: 50%;
   cursor: pointer;
   margin: 10px auto;
 }
-.btn:hover{
+
+.btn:hover {
   background: #111;
 }
-.foto-grande{
+
+.foto-grande {
   display: flex;
   padding-right: 20px;
 }
-.foto-grande > div { 
-  flex: 1; 
+
+.foto-grande>div {
+  flex: 1;
 }
 
 #imgBox {
   width: 100%;
 }
-main{
+
+main {
   padding: 40px;
-  }
-#agregar{
-max-width: 400px;
 }
-#item{
-max-width: 400px;
+
+#agregar {
+  max-width: 400px;
 }
-.boton{
+
+#item {
+  max-width: 400px;
+}
+
+.boton {
   border: none;
   background-color: #fff;
   font-size: 30px;
   color: #0087F7;
 }
-.form-control1{
-  width: 300px;
-  display: flex;
+
+#carro {
+  text-align: center;
+  align-items: center;
 }
+
+.moneda{
+  float: left;
+}
+ input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+   -webkit-appearance: none; 
+  margin: 0; 
+} 

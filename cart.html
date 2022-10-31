@@ -30,7 +30,8 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+              data-bs-toggle="dropdown" aria-expanded="false">
               Usuario: <span id="user"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -44,8 +45,171 @@
     </div>
   </nav>
   <main>
-    <div id="cart">
-    </div>
+    <div>
+      <section class="h-100" style="background-color: #eee;">
+        <div class="container h-100 py-5">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-10">
+
+              <div class="align-items-center mb-4">
+                <h3 id="carro" class="fw-normal mb-0 text-black"><b>Carrito de compras <svg
+                      xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart"
+                      viewBox="0 0 16 16">
+                      <path
+                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                    </svg></b></h3>
+              </div>
+              <div class="card rounded-3 mb-4">
+                <div id="cart">
+                </div>
+              </div>
+              <div>
+                <p>Tipo de envio</p>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="envio" id="standard" checked>
+                  <label class="form-check-label" for="standard">
+                    Standard de 12 a 15 dias (5%)
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="envio" id="express">
+                  <label class="form-check-label" for="express">
+                    Express de 5 a 8 dias (7%)
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="envio" id="premium">
+                  <label class="form-check-label" for="premium">
+                    Premium de 2 a 5 dias (15%)
+                  </label>
+                </div>
+              </div>
+              <hr class="my-4">
+              <div class="container">
+                  <form action="#" method="get" class="row mt-4" id="form-validacion" novalidate>
+                    <div class="col">
+                      <h1 class="mb-3">Registro</h1>
+                      <div class="row g-3">
+                        <div class="col-sm-6">
+                          <label for="calle" class="form-label">Calle</label>
+                          <input type="text" class="form-control" id="calle" name="calle" required>
+                          <div class="invalid-feedback" id="error-calle"></div>
+                        </div>
+
+                        <div class="col-sm-6">
+                          <label for="number" class="form-label">Numero</label>
+                          <input type="number" class="form-control" id="number" name="number" required>
+                          <div class="invalid-feedback" id="error-numero"> </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                          <label for="esquina" class="form-label">Esquina</label>
+                          <input type="text" class="form-control" id="esquina" name="esquina" required>
+                          <div class="invalid-feedback" id="error-esquina"> </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-4">
+                    <div>
+                      <h3>Costos</h3>
+                    </div>
+                    <div class="list-group" id="cat-list-container">
+                      <div class="list-group-item list-group-item d-flex justify-content-between">
+
+                        <div class="w-50">
+                          <h5 class="mb">Subtotal</h5>
+                          <p>Costo unitario del producto por cantidad</p>
+                        </div>
+                        <div class="moneda">
+                          <p>USD <span id="sub-total"></span></p>
+                        </div>
+                      </div>
+                      <div class="list-group-item list-group-item d-flex justify-content-between">
+                        <div class="w-50">
+                          <h5 class="mb-1">Costo de envio</h5>
+                          <p>Segun el tipo de envio</p>
+                        </div>
+                        <div class="moneda">
+                          <p>USD <span id="costo-envio">0</span></p>
+                        </div>
+                      </div>
+                      <div class="list-group-item list-group-item d-flex justify-content-between">
+                        <div class="w-50">
+                          <h5 class="mb-1">Total ($)</h5>
+                        </div>
+                        <div class="moneda">
+                          <p>USD <span id="costo-total">0</span></p>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-4">
+                  <p>Forma de pago</p>
+                  <div>
+                    <button type="button" id="terminos-boton" class="btn btn-link ps-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Seleccionar
+                    </button>
+                    <div class="invalid-feedback" id="error-terminos"> </div>
+                  </div>
+                <br>
+                </br>
+                  <button class="btn btn-primary" type="submit" id="boton-registrar">Finalizar pago</button>
+                </form>
+
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel"><b>Forma de pago</b></h5>
+                        </div>
+                        <div class="modal-body">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" id="tarjeta" name="formaDePago">
+                            <label class="form-check-label" for="tarjeta">
+                              Tarjeta de crédito
+                            </label>
+                          </div>
+                          <br>
+                          <div class="row g-3">
+                            <div class="col-sm-6">
+                              <label for="nro-tarjeta" class="form-label">Numero de Tarjeta</label>
+                              <input type="text" class="form-control" id="nro-tarjeta" name="nro-tarjeta" required>
+                              <div class="invalid-feedback" id="error-nro-tarjeta"></div>
+                            </div>
+
+                            <div class="col-sm-6">
+                              <label for="numero" class="form-label">Codigo de seg.</label>
+                              <input type="text" id="codigo-seg" class="form-control" placeholder="123">
+                              <div class="invalid-feedback" id="error-codigo-seg"> </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <label for="vto" class="form-label">Vencimiento <b style="color: red;">*</b></label>
+                              <input type="number"  id="vto" class="form-control" maxlength="5" minlength="5" placeholder="(mm/aa)">
+                              <div class="invalid-feedback" id="error-vto"> </div>
+                            </div>
+                            <hr class="my-3">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" id="transferencia" name="formaDePago">
+                              <label class="form-check-label" for="transferencia">
+                                Transferencia bancaria
+                              </label>
+                            </div>
+                            <br>
+                            <div class="col-sm-6">
+                              <label for="numero" class="form-label">Numero de cuenta</label>
+                              <input type="number" class="form-control" id="numeroDeCuenta">
+                            </div>
+                          </div>
+                          </br>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -57,14 +221,6 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>

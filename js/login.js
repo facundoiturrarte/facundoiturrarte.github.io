@@ -12,10 +12,7 @@ function login() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", ()=>{
-    let usuario = localStorage.getItem("user");
-    document.getElementById("user").innerHTML= usuario;
-})  
+ 
        
    
 function loginGoogle() {
