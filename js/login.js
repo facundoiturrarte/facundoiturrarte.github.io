@@ -1,7 +1,8 @@
 let email = document.getElementById("email");
 let password = document.getElementById("password");
-let form = document.getElementById("Ingresar");
+let form = document.getElementById("ingresar");
 let info = document.getElementById("info");
+
 
 function login() {
     if (email.value.length == 0 || password.value.length >= 8) {

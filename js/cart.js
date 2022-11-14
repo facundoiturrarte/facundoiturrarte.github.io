@@ -180,6 +180,10 @@ let formulario = document.forms['form-validacion'];
 
 formulario.addEventListener('submit', function (e) {
   e.preventDefault();
+  if(carrito.length ==0 || carrito == null){
+  alert('Debes tener al menos un elemento en el carrito')
+  return false
+} 
   errores(document.getElementById('calle'), 'error-calle', 'Debes agregar una calle', e);
   errores(document.getElementById('number'), 'error-numero', 'Debes agregar los numeros', e)
   errores(document.getElementById('esquina'), 'error-esquina', 'Debes agregar una esquina', e)

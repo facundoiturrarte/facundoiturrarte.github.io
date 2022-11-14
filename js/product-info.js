@@ -10,7 +10,6 @@ let now = new Date();
 let divEstrellas = document.getElementById('estrellas');
 let imageOnDisplay = 0;
 let fotos;
-let carritoProductos = [];
 let productosCarrito = [];
 const products_Info_url = `https://japceibal.github.io/emercado-api/products/${localStorage.getItem("productID")}.json`;
 fetch(products_Info_url)

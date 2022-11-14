@@ -29,16 +29,7 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Usuario: <span id="user"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="cart.html">Mi Carrito</a></li>
-              <li><a class="dropdown-item" href="my-profile.html">Mi Perfil</a></li>
-              <li><a class="dropdown-item" href="login.html">Cerrar Sesión</a></li>
-            </ul>
+          <div class="dropdown" id="login-user">
           </div>
         </ul>
       </div>
@@ -152,7 +143,7 @@
                   </div>
                 <br>
                 </br>
-                  <button class="btn btn-primary" type="submit" id="boton-registrar">Finalizar pago</button>
+                  <button class="btn btn-primary" type="submit" id="boton-finalizar-pago">Finalizar pago</button>
                 </form>
 
                   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -224,6 +215,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
+  <script src="js/header.js"></script>
 </body>
 
 </html>

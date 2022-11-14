@@ -316,10 +316,6 @@ form.example button {
   width: 100%;
 }
 
-main {
-  padding: 40px;
-}
-
 #agregar {
   max-width: 400px;
 }
@@ -347,4 +343,52 @@ main {
 input[type=number]::-webkit-outer-spin-button { 
    -webkit-appearance: none; 
   margin: 0; 
-} 
+}
+
+.action__upload-btn {
+  background: #9999;
+  border-radius: 15px;
+  box-sizing: 0 0 5px rgba(#000, .3);
+  box-sizing: border-box;
+  color: rgb(0, 0, 0);
+  font-size: 10px;
+  padding: 5px 10px;
+  width: 200;
+}
+
+.action__hiddenField {
+  /* Ocultamos el input de tipo "file" porque no podemos 
+  darle los estilos que queremos */
+  display: none;
+}
+
+.profile {
+  margin: 0 auto;
+  display: block;
+}
+.photo{
+  position: relative; 
+  bottom: 25px; 
+  left: 100px;
+  
+  
+}
+
+.profile__image,
+.profile__preview {
+  background-position: center;
+  backrgound-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid;
+}
+
+.profile__image {
+  width: 130px;
+  height: 130px;
+  border-radius: 150px;
+}
+.perfil{
+  text-align: center;
+  font-weight: bold;
+}
+
