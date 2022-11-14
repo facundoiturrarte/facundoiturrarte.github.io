@@ -1,16 +1,39 @@
  body {
   background-color: #E7F6F2;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100vh;
-  position: relative;
+  padding: 5%;
 }
 .info {
   color: red;
 }
-main-sesion{
-  border: 2px;
+#main-sesion{
+  border: 2px solid black;
   width: 50%;
   height: 50%;
+  margin: auto;
+}
+.perfil{
+  text-align: center;
+}
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+.google-text{
+  text-align: center;
+}
+.row>* {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+}
+.email{
+  padding: 10px;
+}
+.password{
+  padding: 10px;
 }

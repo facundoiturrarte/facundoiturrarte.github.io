@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
   document.getElementById('numero-contacto').value=''
   document.getElementById('photo-usuario').style=''
 }
-
+})
 const cart_Info = "https://japceibal.github.io/emercado-api/user_cart/25801.json";
  let carrito = JSON.parse(localStorage.getItem("carrito")) || []; 
 
@@ -71,5 +71,4 @@ const cart_Info = "https://japceibal.github.io/emercado-api/user_cart/25801.json
      recalcularSubtotal()
      // calcular el valor actual del costo de envio
      calcularCostoDeEnvioInicial()
-})
 })

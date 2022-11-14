@@ -6,9 +6,9 @@ if(localStorage.getItem("user")){
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
     <li><a class="dropdown-item" href="cart.html">Mi Carrito</a></li>
     <li><a class="dropdown-item" id="my-profile" href="my-profile.html">Mi Perfil</a></li>
-    <li><a class="dropdown-item" href="login.html">Cerrar Sessión</a></li>
+    <li><a class="dropdown-item" href="login.html">Cerrar Sesión</a></li>
   </ul>`
 }else{
     hola1.innerHTML=`
-  <a class="btn btn-secondary"  id="dropdownMenuButton1" href="login.html">Iniciar sesion</a>`
+  <a class="btn btn-secondary"  id="dropdownMenuButton1" href="login.html">Iniciar Sesión</a>`
 }
