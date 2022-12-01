@@ -5,23 +5,23 @@ let primerApellido = document.getElementById('primer-apellido')
 let segundoApellido = document.getElementById('segundo-apellido')
 let email = document.getElementById('email')
 let numContacto = document.getElementById('numero-contacto')
-let arrayUsuario =[];
+let arrayUsuario = [];
 
- perfil.addEventListener("submit", function (e) {
+perfil.addEventListener("submit", function (e) {
   e.preventDefault();
   errores(document.getElementById('primer-nombre'), 'error-primer-nombre', 'Debes agregar tu nombre', e);
   errores(document.getElementById('primer-apellido'), 'error-primer-apellido', 'Debes agregar tu apellido', e)
   perfil.classList.add('was-validated');
-arrayUsuario ={
-  pNombre: primerNombre.value,
-  sNombre: segundoNombre.value,
-  pApellido: primerApellido.value,
-  sApellido: segundoApellido.value,
-  correo: email.value,
-  contacto: numContacto.value,
-  photo: profileImage.style.backgroundImage = `url(${fr.result})`
-}
-localStorage.setItem("GuardarDatos",  JSON.stringify(arrayUsuario));
+  arrayUsuario = {
+    pNombre: primerNombre.value,
+    sNombre: segundoNombre.value,
+    pApellido: primerApellido.value,
+    sApellido: segundoApellido.value,
+    correo: email.value,
+    contacto: numContacto.value,
+    photo: profileImage.style.backgroundImage = `url(${fr.result})`
+  }
+  localStorage.setItem("GuardarDatos", JSON.stringify(arrayUsuario));
 })
 
 function errores(input, nombreid, texto, e) {
@@ -40,8 +40,8 @@ function errores(input, nombreid, texto, e) {
 
 
 
-  
-  'use strict';
+
+'use strict';
 
 const fr = new FileReader();
 const fileField = document.querySelector('.js__profile-upload-btn');
@@ -57,7 +57,7 @@ const profilePreview = document.querySelector('.js__profile-preview');
  * al tener los datos listos
  * @param {evento} e 
  */
-function getImage(e){
+function getImage(e) {
   const myFile = e.currentTarget.files[0];
   fr.addEventListener('load', writeImage);
   fr.readAsDataURL(myFile);

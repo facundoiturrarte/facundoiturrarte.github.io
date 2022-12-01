@@ -95,7 +95,7 @@ function recalcularSubtotal() {
     let valorRealProducto = producto.unitCost;
 
     // si la moneda es pesos uruguayos, la variable valorRealProducto se va a actualizar con el unit cost dividido por 40 
-    if(producto.currency === 'UYU') {
+    if (producto.currency === 'UYU') {
       valorRealProducto = Math.round(producto.unitCost / 40);
     }
 
@@ -103,7 +103,7 @@ function recalcularSubtotal() {
     const subtotalProducto = cantidadReal * valorRealProducto;
 
     // el subtotal de un producto, lo sumo al subtotal final de todos los productos en cada iteracion
-     subTotalFinal+= subtotalProducto;
+    subTotalFinal += subtotalProducto;
   }
   stotal.innerHTML = `${subTotalFinal}`;
   recalcularTotal();
@@ -158,8 +158,8 @@ let nroTarjeta = document.getElementById("nro-tarjeta");
 let codigoSeg = document.getElementById("codigo-seg");
 let vto = document.getElementById("vto");
 
-pagoPorTarjeta.addEventListener('click', function() {
-  if(pagoPorTarjeta.checked) {
+pagoPorTarjeta.addEventListener('click', function () {
+  if (pagoPorTarjeta.checked) {
     numeroDeCuenta.disabled = true;
     nroTarjeta.disabled = false;
     codigoSeg.disabled = false;
@@ -167,8 +167,8 @@ pagoPorTarjeta.addEventListener('click', function() {
   }
 })
 
-pagoPorTransferencia.addEventListener('click', function() {
-  if(pagoPorTransferencia.checked) {
+pagoPorTransferencia.addEventListener('click', function () {
+  if (pagoPorTransferencia.checked) {
     nroTarjeta.disabled = true;
     codigoSeg.disabled = true;
     vto.disabled = true;
@@ -180,10 +180,10 @@ let formulario = document.forms['form-validacion'];
 
 formulario.addEventListener('submit', function (e) {
   e.preventDefault();
-  if(carrito.length ==0 || carrito == null){
-  alert('Debes tener al menos un elemento en el carrito')
-  return false
-} 
+  if (carrito.length == 0 || carrito == null) {
+    alert('Debes tener al menos un elemento en el carrito')
+    return false
+  }
   errores(document.getElementById('calle'), 'error-calle', 'Debes agregar una calle', e);
   errores(document.getElementById('number'), 'error-numero', 'Debes agregar los numeros', e)
   errores(document.getElementById('esquina'), 'error-esquina', 'Debes agregar una esquina', e)
@@ -195,12 +195,12 @@ formulario.addEventListener('submit', function (e) {
   } else if (pagoPorTransferencia.checked && !numeroDeCuenta.value) {
     document.getElementById('terminos-boton').classList.add('color-rojo');
     document.getElementById('error-terminos').innerHTML = 'Debe ingresar numero de cuenta';
-    document.getElementById('error-terminos').classList.add('d-block'); 
+    document.getElementById('error-terminos').classList.add('d-block');
   } else if (pagoPorTarjeta.checked && (!nroTarjeta.value || !codigoSeg.value || !vto.value)) {
     document.getElementById('terminos-boton').classList.add('color-rojo');
     document.getElementById('error-terminos').innerHTML = 'Debe completar los datos de la tarjeta';
-    document.getElementById('error-terminos').classList.add('d-block'); 
-  } 
+    document.getElementById('error-terminos').classList.add('d-block');
+  }
   else {
     document.getElementById('terminos-boton').classList.remove('color-rojo');
     document.getElementById('error-terminos').innerHTML = '';

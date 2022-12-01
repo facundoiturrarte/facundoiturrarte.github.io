@@ -147,14 +147,14 @@ function agregarAlCarrito(id) {
     let articulos = {
         name: productosCarrito.name,
         currency: productosCarrito.currency,
-        id: productosCarrito.id, 
+        id: productosCarrito.id,
         image: productosCarrito.images[0],
         unitCost: productosCarrito.cost
     }
-    let productoEncontrado = carrito.find(p=>p.id==id)
-    if (productoEncontrado==undefined){
-     carrito.push(articulos);
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-}
-window.location.href = "cart.html"
+    let productoEncontrado = carrito.find(p => p.id == id)
+    if (productoEncontrado == undefined) {
+        carrito.push(articulos);
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+    }
+    window.location.href = "cart.html"
 }

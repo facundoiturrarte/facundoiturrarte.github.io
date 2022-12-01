@@ -14,15 +14,6 @@
 .perfil{
   text-align: center;
 }
-footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-footer p {
-  margin-bottom: .25rem;
-}
-
 .google-text{
   text-align: center;
 }
@@ -37,3 +28,4 @@ footer p {
 .password{
   padding: 10px;
 }
+
